@@ -8,6 +8,8 @@ type Post{
     createdAt: String!
     comments: [Comment]!
     likes: [Like]!
+    likesCount: Int!
+    commentsCount: Int!
 }
 type Comment{
     id: ID!,
@@ -36,6 +38,9 @@ input RegisterInput{
 type Query{
     getPosts: [Post]
     getPost(postId: ID!): Post
+}
+type Subscription{
+    newPost: Post!
 }
 type Mutation{
     register(registerInput: RegisterInput): User!
